@@ -157,24 +157,11 @@ class Trainset:
                 yield u, i, r
 
     def build_testset(self):
-        """Return a list of ratings that can be used as a testset in the
-        :meth:`test() <surprise.prediction_algorithms.algo_base.AlgoBase.test>`
-        method.
-
-        The ratings are all the ratings that are in the trainset, i.e. all the
-        ratings returned by the :meth:`all_ratings()
-        <surprise.Trainset.all_ratings>` generator. This is useful in
-        cases where you want to to test your algorithm on the trainset.
-        """
-
         return [(self.to_raw_uid(u), self.to_raw_iid(i), r)
                 for (u, i, r) in self.all_ratings()]
 
     def build_anti_testset(self, fill=None):
-        """Return a list of ratings that can be used as a testset in the
-        :meth:`test() <surprise.prediction_algorithms.algo_base.AlgoBase.test>`
-        method.
-
+        """
         The ratings are all the ratings that are **not** in the trainset, i.e.
         all the ratings :math:`r_{ui}` where the user :math:`u` is known, the
         item :math:`i` is known, but the rating :math:`r_{ui}`  is not in the
