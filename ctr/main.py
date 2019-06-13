@@ -109,7 +109,7 @@ if __name__ == '__main__':
     ctr = CollaborativeTopicModel(n_topic=200, n_voca=8000, doc_ids=doc_ids,
                                   doc_word_ids=doc_word_ids, doc_word_cnts=doc_word_cnts, ratings=ratings,
                                   beta_init='../output/gensim.beta', theta_init='../output/gensim.theta')
-    ctr.fit(max_iter=1)
+    ctr.fit(max_iter=50)
 
     # save ctr beta and theta
     ctr.save_theta_beta(beta_path='../output/ctr.beta',
